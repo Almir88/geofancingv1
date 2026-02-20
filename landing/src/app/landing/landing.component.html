@@ -1,0 +1,170 @@
+<div class="landing">
+  <header class="header">
+    <a href="#" class="logo" (click)="scrollTo('pocetna'); $event.preventDefault()">
+      <span class="logo-icon">📍</span>
+      <span class="logo-text">GeoCampaign</span>
+    </a>
+    <nav class="nav">
+      <a href="#pocetna" class="nav-link" (click)="scrollTo('pocetna'); $event.preventDefault()">Početna</a>
+      <a href="#o-nama" class="nav-link" (click)="scrollTo('o-nama'); $event.preventDefault()">O nama</a>
+      <a href="#benefiti" class="nav-link" (click)="scrollTo('benefiti'); $event.preventDefault()">Naše prednosti</a>
+      <a href="#kako-radi" class="nav-link" (click)="scrollTo('kako-radi'); $event.preventDefault()">Kako funkcioniše</a>
+      <a href="#demo" class="nav-link cta-nav" (click)="scrollTo('demo'); $event.preventDefault()">Demo</a>
+      <a routerLink="/login" class="btn btn-outline btn-sm nav-btn">Uloguj se</a>
+      <a routerLink="/registracija" class="btn btn-primary btn-sm nav-btn">Registracija</a>
+    </nav>
+    <button type="button" class="menu-btn" aria-label="Meni" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" [class.open]="menuOpen()">
+    <a href="#pocetna" class="mobile-link" (click)="scrollTo('pocetna'); closeMenu()">Početna</a>
+    <a href="#o-nama" class="mobile-link" (click)="scrollTo('o-nama'); closeMenu()">O nama</a>
+    <a href="#benefiti" class="mobile-link" (click)="scrollTo('benefiti'); closeMenu()">Naše prednosti</a>
+    <a href="#kako-radi" class="mobile-link" (click)="scrollTo('kako-radi'); closeMenu()">Kako funkcioniše</a>
+    <a href="#demo" class="mobile-link" (click)="scrollTo('demo'); closeMenu()">Demo</a>
+    <a routerLink="/login" class="mobile-link mobile-btn mobile-btn-outline" (click)="closeMenu()">Uloguj se</a>
+    <a routerLink="/registracija" class="mobile-link mobile-btn mobile-btn-primary" (click)="closeMenu()">Registracija</a>
+  </div>
+
+  <main>
+    <section id="pocetna" class="section hero">
+      <div class="container">
+        <h1 class="hero-title">Povećajte prodaju lokalno koristeći geofencing + AI kampanje</h1>
+        <p class="hero-desc">
+          Naša aplikacija šalje personalizovane RCS poruke i AI promotivne video kampanje
+          korisnicima kad su u blizini vaše prodavnice.
+        </p>
+        <div class="hero-cta">
+          <a href="#demo" class="btn btn-primary" (click)="scrollTo('demo'); $event.preventDefault()">Registrujte se za demo</a>
+          <a href="#demo" class="btn btn-secondary" (click)="scrollTo('demo'); $event.preventDefault()">Zatražite pilot kampanju</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-nama" class="section about">
+      <div class="container">
+        <h2 class="section-title">O nama</h2>
+        <p class="about-lead">
+          Povezujemo lokaciju, tehnologiju i personalizaciju kako bi prodavnice privukle više
+          posjetilaca i povećale konverziju.
+        </p>
+        <p class="about-text">
+          Koristimo geofencing da detektujemo kada su korisnici u blizini vaše lokacije, a zatim im
+          automatski dostavljamo relevantne ponude putem RCS poruka, SMS-a ili personalizovanih AI
+          video kampanja — bez potrebe za velikim marketing timom.
+        </p>
+      </div>
+    </section>
+
+    <section id="benefiti" class="section benefits">
+      <div class="container">
+        <h2 class="section-title section-title-underline">Naše prednosti</h2>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon-wrap"><span class="benefit-icon">🏪</span></div>
+            <h3>Veća posjeta fizičkim prodavnicama</h3>
+            <p>Privucite korisnike u blizini u pravi trenutak s personalizovanim porukama.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon-wrap"><span class="benefit-icon">⚙️</span></div>
+            <h3>Automatske kampanje bez dodatnog marketing tima</h3>
+            <p>Postavite zonu i pravila jednom — kampanje rade same.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon-wrap"><span class="benefit-icon">📊</span></div>
+            <h3>Precizna statistika ROI</h3>
+            <p>Pratite posjete, klikove i konverziju po kampanji i lokaciji.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon-wrap"><span class="benefit-icon">🎬</span></div>
+            <h3>Personalizovani AI video promotori</h3>
+            <p>Korisnici primaju video poruke s ponudama prilagođenim njihovim interesima.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kako-radi" class="section flow">
+      <div class="container">
+        <h2 class="section-title section-title-underline">Kako funkcioniše</h2>
+        <p class="flow-desc">Od geofence zone do poruke u korisnikovom džepu — u nekoliko koraka.</p>
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-icon-wrap">
+                <svg class="flow-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                  <circle cx="12" cy="9" r="2.5"/>
+                </svg>
+              </div>
+              <span class="flow-label">Geofence</span>
+            </div>
+          </div>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></span>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-icon-wrap">
+                <svg class="flow-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <path d="M8 21h8M12 17v4"/>
+                </svg>
+              </div>
+              <span class="flow-label">Backend</span>
+            </div>
+          </div>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></span>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-icon-wrap">
+                <svg class="flow-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  <polygon points="10,8 16,12 10,16 10,8" fill="currentColor"/>
+                </svg>
+              </div>
+              <span class="flow-label">RCS / SMS / AI video</span>
+            </div>
+          </div>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></span>
+          <div class="flow-step">
+            <div class="flow-node">
+              <div class="flow-icon-wrap">
+                <svg class="flow-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="3"/>
+                  <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                  <rect x="14" y="4" width="6" height="10" rx="1"/>
+                </svg>
+              </div>
+              <span class="flow-label">Korisnik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="section cta">
+      <div class="container">
+        <h2 class="section-title cta-title">Spremni za prvi korak?</h2>
+        <p class="cta-desc">Registrujte se za demo ili zatražite pilot kampanju za vašu prodavnicu.</p>
+        <div class="cta-buttons">
+          <a routerLink="/registracija" class="btn btn-primary btn-lg">Registrujte se za demo</a>
+          <a href="#" class="btn btn-outline btn-lg">Zatražite pilot kampanju</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">© GeoCampaign — Geofencing + AI kampanje</p>
+      <nav class="footer-nav">
+        <a href="#o-nama" (click)="scrollTo('o-nama'); $event.preventDefault()">O nama</a>
+        <a href="#">Cijene</a>
+        <a href="#">Kontakt</a>
+        <a href="#">Privatnost</a>
+        <a href="#">Uvjeti korištenja</a>
+      </nav>
+    </div>
+  </footer>
+</div>

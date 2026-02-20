@@ -1,0 +1,52 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h1 class="auth-title">Registracija</h1>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label for="ime">Ime</label>
+        <input id="ime" type="text" formControlName="ime" class="form-control" placeholder="Ime" />
+        @if (registrationForm.get('ime')?.invalid && registrationForm.get('ime')?.touched) {
+          <span class="form-error">Ime je obavezno.</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="prezime">Prezime</label>
+        <input id="prezime" type="text" formControlName="prezime" class="form-control" placeholder="Prezime" />
+        @if (registrationForm.get('prezime')?.invalid && registrationForm.get('prezime')?.touched) {
+          <span class="form-error">Prezime je obavezno.</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="kompanija">Kompanija</label>
+        <input id="kompanija" type="text" formControlName="kompanija" class="form-control" placeholder="Kompanija" />
+        @if (registrationForm.get('kompanija')?.invalid && registrationForm.get('kompanija')?.touched) {
+          <span class="form-error">Kompanija je obavezna.</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" class="form-control" placeholder="email@primjer.com" />
+        @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
+          <span class="form-error">{{
+            registrationForm.get('email')?.errors?.['email'] ? 'Unesite ispravan email.' : 'Email je obavezan.'
+          }}</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="brojTelefona">Broj telefona</label>
+        <input id="brojTelefona" type="tel" formControlName="brojTelefona" class="form-control" placeholder="+387 61 123 456" />
+        @if (registrationForm.get('brojTelefona')?.invalid && registrationForm.get('brojTelefona')?.touched) {
+          <span class="form-error">Broj telefona je obavezan.</span>
+        }
+      </div>
+      <div class="form-actions">
+        <a routerLink="/" class="btn btn-outline">Nazad</a>
+        <button type="submit" class="btn btn-primary">Registruj se</button>
+      </div>
+    </form>
+    <p class="auth-footer">
+      Već imaš račun?
+      <a routerLink="/login" class="auth-link">Uloguj se</a>
+    </p>
+  </div>
+</div>

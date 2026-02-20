@@ -1,0 +1,47 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <h1 class="auth-title">Uloguj se</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <label for="korisnickoIme">Korisničko ime</label>
+        <input
+          id="korisnickoIme"
+          type="text"
+          formControlName="korisnickoIme"
+          class="form-control"
+          placeholder="Korisničko ime"
+        />
+        @if (loginForm.get('korisnickoIme')?.invalid && loginForm.get('korisnickoIme')?.touched) {
+          <span class="form-error">Korisničko ime je obavezno.</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="lozinka">Lozinka</label>
+        <input
+          id="lozinka"
+          type="password"
+          formControlName="lozinka"
+          class="form-control"
+          placeholder="Lozinka"
+        />
+        @if (loginForm.get('lozinka')?.invalid && loginForm.get('lozinka')?.touched) {
+          <span class="form-error">Lozinka je obavezna.</span>
+        }
+      </div>
+      <div class="form-row">
+        <label class="form-checkbox">
+          <input type="checkbox" formControlName="zaboravljenaLozinka" />
+          Zaboravljena lozinka
+        </label>
+      </div>
+      <div class="form-actions">
+        <a routerLink="/" class="btn btn-outline">Nazad</a>
+        <button type="submit" class="btn btn-primary">Uloguj se</button>
+      </div>
+    </form>
+    <p class="auth-footer">
+      Nemaš račun?
+      <a routerLink="/registracija" class="auth-link">Registruj se</a>
+    </p>
+  </div>
+</div>

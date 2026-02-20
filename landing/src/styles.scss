@@ -1,0 +1,192 @@
+/* Global styles - Geofencing Landing (paleta iz reference) */
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    'Plus Jakarta Sans',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #1a1a2e;
+}
+
+:root {
+  /* Paleta iz slike */
+  --hero-blue: #0f223f;
+  --hero-blue-dark: #0a1628;
+  --accent-green: #00a878;
+  --accent-green-dark: #008f68;
+  --bg-light: #f8f8f8;
+  --surface: #ffffff;
+  --outline-blue: #e0f4ff;
+  --outline-blue-strong: #7dd3fc;
+  --arrow-blue: #2563eb;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+// Auth stranice (Login / Registracija) - zajednički dizajn
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--hero-blue);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+}
+
+.auth-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--outline-blue-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+  &::placeholder {
+    color: var(--text-muted);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--arrow-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+  &.ng-invalid.ng-touched {
+    border-color: #dc2626;
+  }
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: #dc2626;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--accent-green);
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.auth-link {
+  color: var(--accent-green);
+  text-decoration: none;
+  font-weight: 500;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: #fff;
+  &:hover {
+    background: var(--accent-green-dark);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+  &:hover {
+    background: rgba(0, 168, 120, 0.08);
+  }
+}
