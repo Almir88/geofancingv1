@@ -109,6 +109,16 @@ body {
   }
 }
 
+.form-error-box {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #dc2626;
+}
+
 .form-error {
   font-size: 0.8rem;
   color: #dc2626;

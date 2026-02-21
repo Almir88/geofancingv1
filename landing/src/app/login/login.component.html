@@ -1,18 +1,25 @@
 <div class="auth-page">
   <div class="auth-card">
     <h1 class="auth-title">Uloguj se</h1>
+    @if (errorMessage) {
+      <div class="form-error-box">{{ errorMessage }}</div>
+    }
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
       <div class="form-group">
-        <label for="korisnickoIme">Korisničko ime</label>
+        <label for="email">Email</label>
         <input
-          id="korisnickoIme"
-          type="text"
-          formControlName="korisnickoIme"
+          id="email"
+          type="email"
+          formControlName="email"
           class="form-control"
-          placeholder="Korisničko ime"
+          placeholder="email&#64;primjer.com"
         />
-        @if (loginForm.get('korisnickoIme')?.invalid && loginForm.get('korisnickoIme')?.touched) {
-          <span class="form-error">Korisničko ime je obavezno.</span>
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <span class="form-error">{{
+            loginForm.get('email')?.errors?.['email']
+              ? 'Unesite ispravan email.'
+              : 'Email je obavezan.'
+          }}</span>
         }
       </div>
       <div class="form-group">
@@ -22,10 +29,10 @@
           type="password"
           formControlName="lozinka"
           class="form-control"
-          placeholder="Lozinka"
+          placeholder="Lozinka (min. 6 znakova)"
         />
         @if (loginForm.get('lozinka')?.invalid && loginForm.get('lozinka')?.touched) {
-          <span class="form-error">Lozinka je obavezna.</span>
+          <span class="form-error">Lozinka je obavezna (min. 6 znakova).</span>
         }
       </div>
       <div class="form-row">
@@ -35,8 +42,10 @@
         </label>
       </div>
       <div class="form-actions">
-        <a routerLink="/" class="btn btn-outline">Nazad</a>
-        <button type="submit" class="btn btn-primary">Uloguj se</button>
+        <a routerLink="/registracija" class="btn btn-outline">Registracija</a>
+        <button type="submit" class="btn btn-primary" [disabled]="loading">
+          {{ loading ? 'Prijava...' : 'Uloguj se' }}
+        </button>
       </div>
     </form>
     <p class="auth-footer">

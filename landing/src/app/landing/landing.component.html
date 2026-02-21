@@ -26,8 +26,15 @@
         <a href="#demo" class="nav-link cta-nav" (click)="scrollTo('demo'); $event.preventDefault()"
           >Demo</a
         >
-        <a routerLink="/login" class="btn btn-outline btn-sm nav-btn">Uloguj se</a>
-        <a routerLink="/registracija" class="btn btn-primary btn-sm nav-btn">Registracija</a>
+        @if (auth.isLoggedIn()) {
+          <a routerLink="/dashboard" class="btn btn-primary btn-sm nav-btn">Dashboard</a>
+          <button type="button" class="btn btn-outline btn-sm nav-btn" (click)="logout()">
+            Odjavi se
+          </button>
+        } @else {
+          <a routerLink="/login" class="btn btn-outline btn-sm nav-btn">Uloguj se</a>
+          <a routerLink="/registracija" class="btn btn-primary btn-sm nav-btn">Registracija</a>
+        }
       </nav>
       <button type="button" class="menu-btn" aria-label="Meni" (click)="toggleMenu()">
         <span></span><span></span><span></span>
@@ -53,15 +60,31 @@
     >
     <a href="#prikaz" class="mobile-link" (click)="scrollTo('prikaz'); closeMenu()">Prikaz</a>
     <a href="#demo" class="mobile-link" (click)="scrollTo('demo'); closeMenu()">Demo</a>
-    <a routerLink="/login" class="mobile-link mobile-btn mobile-btn-outline" (click)="closeMenu()"
-      >Uloguj se</a
-    >
-    <a
-      routerLink="/registracija"
-      class="mobile-link mobile-btn mobile-btn-primary"
-      (click)="closeMenu()"
-      >Registracija</a
-    >
+    @if (auth.isLoggedIn()) {
+      <a
+        routerLink="/dashboard"
+        class="mobile-link mobile-btn mobile-btn-primary"
+        (click)="closeMenu()"
+        >Dashboard</a
+      >
+      <button
+        type="button"
+        class="mobile-link mobile-btn mobile-btn-outline"
+        (click)="logout(); closeMenu()"
+      >
+        Odjavi se
+      </button>
+    } @else {
+      <a routerLink="/login" class="mobile-link mobile-btn mobile-btn-outline" (click)="closeMenu()"
+        >Uloguj se</a
+      >
+      <a
+        routerLink="/registracija"
+        class="mobile-link mobile-btn mobile-btn-primary"
+        (click)="closeMenu()"
+        >Registracija</a
+      >
+    }
   </div>
 
   <main>

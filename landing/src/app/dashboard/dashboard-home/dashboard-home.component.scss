@@ -1,0 +1,39 @@
+.dashboard-home {
+  max-width: 720px;
+}
+
+.page-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--hero-blue);
+}
+
+.page-desc {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.welcome-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}

@@ -1,5 +1,6 @@
-import { Component, signal, AfterViewInit } from '@angular/core';
+import { Component, signal, AfterViewInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -10,6 +11,11 @@ import { RouterLink } from '@angular/router';
 })
 export class LandingComponent implements AfterViewInit {
   protected readonly menuOpen = signal(false);
+  protected readonly auth = inject(AuthService);
+
+  logout(): void {
+    this.auth.logout();
+  }
 
   scrollTo(sectionId: string): void {
     const el = document.getElementById(sectionId);

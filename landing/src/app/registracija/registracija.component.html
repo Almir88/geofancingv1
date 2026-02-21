@@ -1,6 +1,9 @@
 <div class="auth-page">
   <div class="auth-card">
     <h1 class="auth-title">Registracija</h1>
+    @if (errorMessage) {
+      <div class="form-error-box">{{ errorMessage }}</div>
+    }
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="auth-form">
       <div class="form-group">
         <label for="ime">Ime</label>
@@ -11,37 +14,88 @@
       </div>
       <div class="form-group">
         <label for="prezime">Prezime</label>
-        <input id="prezime" type="text" formControlName="prezime" class="form-control" placeholder="Prezime" />
+        <input
+          id="prezime"
+          type="text"
+          formControlName="prezime"
+          class="form-control"
+          placeholder="Prezime"
+        />
         @if (registrationForm.get('prezime')?.invalid && registrationForm.get('prezime')?.touched) {
           <span class="form-error">Prezime je obavezno.</span>
         }
       </div>
       <div class="form-group">
         <label for="kompanija">Kompanija</label>
-        <input id="kompanija" type="text" formControlName="kompanija" class="form-control" placeholder="Kompanija" />
-        @if (registrationForm.get('kompanija')?.invalid && registrationForm.get('kompanija')?.touched) {
-          <span class="form-error">Kompanija je obavezna.</span>
-        }
+        <input
+          id="kompanija"
+          type="text"
+          formControlName="kompanija"
+          class="form-control"
+          placeholder="Kompanija (opcionalno)"
+        />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" type="email" formControlName="email" class="form-control" placeholder="email@primjer.com" />
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="email&#64;primjer.com"
+        />
         @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
           <span class="form-error">{{
-            registrationForm.get('email')?.errors?.['email'] ? 'Unesite ispravan email.' : 'Email je obavezan.'
+            registrationForm.get('email')?.errors?.['email']
+              ? 'Unesite ispravan email.'
+              : 'Email je obavezan.'
           }}</span>
         }
       </div>
       <div class="form-group">
         <label for="brojTelefona">Broj telefona</label>
-        <input id="brojTelefona" type="tel" formControlName="brojTelefona" class="form-control" placeholder="+387 61 123 456" />
-        @if (registrationForm.get('brojTelefona')?.invalid && registrationForm.get('brojTelefona')?.touched) {
-          <span class="form-error">Broj telefona je obavezan.</span>
+        <input
+          id="brojTelefona"
+          type="tel"
+          formControlName="brojTelefona"
+          class="form-control"
+          placeholder="+387 61 123 456 (opcionalno)"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lozinka">Lozinka</label>
+        <input
+          id="lozinka"
+          type="password"
+          formControlName="lozinka"
+          class="form-control"
+          placeholder="Min. 6 znakova"
+        />
+        @if (registrationForm.get('lozinka')?.invalid && registrationForm.get('lozinka')?.touched) {
+          <span class="form-error">Lozinka mora imati najmanje 6 znakova.</span>
+        }
+      </div>
+      <div class="form-group">
+        <label for="potvrdaLozinke">Potvrda lozinke</label>
+        <input
+          id="potvrdaLozinke"
+          type="password"
+          formControlName="potvrdaLozinke"
+          class="form-control"
+          placeholder="Ponovite lozinku"
+        />
+        @if (
+          registrationForm.get('potvrdaLozinke')?.invalid &&
+          registrationForm.get('potvrdaLozinke')?.touched
+        ) {
+          <span class="form-error">Potvrda lozinke je obavezna.</span>
         }
       </div>
       <div class="form-actions">
-        <a routerLink="/" class="btn btn-outline">Nazad</a>
-        <button type="submit" class="btn btn-primary">Registruj se</button>
+        <a routerLink="/login" class="btn btn-outline">Nazad</a>
+        <button type="submit" class="btn btn-primary" [disabled]="loading">
+          {{ loading ? 'Registracija...' : 'Registruj se' }}
+        </button>
       </div>
     </form>
     <p class="auth-footer">

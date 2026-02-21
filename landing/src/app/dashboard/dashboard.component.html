@@ -1,0 +1,28 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="logo"
+    >
+      <span class="logo-text">GeoCampaign</span>
+    </a>
+    <nav class="sidebar-nav">
+      <a
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="sidebar-link"
+      >
+        Početna
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button type="button" class="sidebar-btn" (click)="auth.logout()">Odjavi se</button>
+    </div>
+  </aside>
+  <main class="dashboard-main">
+    <router-outlet />
+  </main>
+</div>
