@@ -1,0 +1,11 @@
+# Dependencies i build output
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+*.log
+
+# Env
+.env
+.env.*
