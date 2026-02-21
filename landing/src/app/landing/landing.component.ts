@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, AfterViewInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
 })
-export class LandingComponent {
+export class LandingComponent implements AfterViewInit {
   protected readonly menuOpen = signal(false);
 
   scrollTo(sectionId: string): void {
@@ -22,5 +22,19 @@ export class LandingComponent {
 
   closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+    document.querySelectorAll('.scroll-in').forEach((el) => observer.observe(el));
   }
 }
