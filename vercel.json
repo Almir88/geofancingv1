@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd landing && npm ci && npm run build",
+  "outputDirectory": "landing/dist/landing",
+  "installCommand": "cd landing && npm ci",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

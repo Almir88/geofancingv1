@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/landing/browser",
+  "outputDirectory": "dist/landing",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
